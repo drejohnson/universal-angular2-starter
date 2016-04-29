@@ -1,0 +1,10 @@
+{
+  "name": "PHRESHR",
+  "script": "./dist/server/server.js",
+  "watch": "./dist/server",
+  "log_date_format": "YYYY-MM-DD HH:mm Z",
+  "error_file": "./logs/errors.log",
+  "out_file": "./logs/output.log",
+  "autorestart": true,
+  "env": {}
+}
