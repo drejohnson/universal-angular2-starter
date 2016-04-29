@@ -1,16 +1,21 @@
 import 'angular2-universal/polyfills';
 
-import {bootstrap, enableProdMode, BROWSER_ROUTER_PROVIDERS, BROWSER_HTTP_PROVIDERS} from 'angular2-universal';
+import { bootstrap } from 'angular2-universal';
 
-import {App} from './app';
+import {DIRECTIVES, PIPES, PROVIDERS} from './platform/browser';
+import {ENV_PROVIDERS} from './platform/environment';
 
-enableProdMode();
+import {App, APP_PROVIDERS} from './app';
 
-export function main() {
-  bootstrap(App, [
-    ...BROWSER_ROUTER_PROVIDERS,
-    ...BROWSER_HTTP_PROVIDERS
-  ]);
+export function main(): Promise<any> {
+  return bootstrap(App, [
+    ...PROVIDERS,
+    ...ENV_PROVIDERS,
+    ...DIRECTIVES,
+    ...PIPES,
+    ...APP_PROVIDERS
+  ])
+   .catch(err => console.error(err));
 }
 
 export function bootstrapDomReady() {

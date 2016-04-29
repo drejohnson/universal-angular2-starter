@@ -22,24 +22,6 @@ export class XLarge {
 }
 
 /////////////////////////
-// ** Example Components
-// @Component({
-//   selector: 'home',
-//   template: `
-//     <div>This is the "Home" page</div>
-//   `
-// })
-// export class Home { }
-
-// @Component({
-//   selector: 'about',
-//   template: `
-//   <div>This is the "About" page</div>
-//   `
-// })
-// export class About { }
-
-/////////////////////////
 // ** MAIN APP COMPONENT **
 @Component({
   selector: 'app', // <app></app>
@@ -92,7 +74,6 @@ export class XLarge {
 })
 @RouteConfig([
   { path: '/', component: Home, name: 'Home', useAsDefault: true },
-  { path: '/home', component: Home, name: 'Home' },
   { path: '/about', component: About, name: 'About' },
   { path: '/**', redirectTo: ['Home'] }
 ])

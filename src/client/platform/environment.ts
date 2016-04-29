@@ -10,7 +10,7 @@ import {enableProdMode} from 'angular2/core';
 // Environment Providers
 var PROVIDERS = [];
 
-if ('production' === ENV) {
+if (process.env.NODE_ENV === 'production') {
   // Production
   enableProdMode();
   console.log('App running in Production');
