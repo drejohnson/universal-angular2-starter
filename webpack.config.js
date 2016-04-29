@@ -22,9 +22,9 @@ const CLIENT_NAME    = constants.CLIENT_NAME;
 const SERVER_SOURCE_PATH    = constants.SERVER_SOURCE_PATH;
 const CLIENT_SOURCE_PATH    = constants.CLIENT_SOURCE_PATH;
 
-// Node Environment TODO: Add refined ENV check
-// const IS_PROD = process.env.NODE_ENV === 'production';
-const DEBUG = !process.env.NODE_ENV === 'production';
+// Node Environment
+const ENV = process.env.ENV = process.env.NODE_ENV || 'development';
+const DEBUG = ENV !== 'production';
 
 // Node Modules
 const NODE_MODULES = fs.readdirSync(ROOT_DIR + '/node_modules').filter((name) => {
@@ -83,9 +83,11 @@ const POSTCSS = function() {
 
 // Common Plugins
 const COMMOM_PLUGINS = [
-  // new webpack.DefinePlugin({ GLOBALS }),
   new webpack.DefinePlugin({
-    'process.env.NODE_ENV': DEBUG ? '"development"' : '"production"',
+    'process.env': {
+      ENV: JSON.stringify(ENV),
+      NODE_ENV: JSON.stringify(ENV)
+    }
   }),
   ...DEBUG ? [] : [
     // production
