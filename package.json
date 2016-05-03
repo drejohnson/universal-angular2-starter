@@ -57,7 +57,9 @@
     "angular2": "2.0.0-beta.15",
     "angular2-universal": "~0.98.3",
     "body-parser": "^1.15.0",
+    "compression": "^1.6.1",
     "express": "^4.13.4",
+    "morgan": "^1.7.0",
     "preboot": "^2.0.7",
     "rxjs": "5.0.0-beta.2"
   },
@@ -103,6 +105,7 @@
     "typings": "~0.8.1",
     "url-loader": "^0.5.7",
     "webpack": "^2.1.0-beta.6",
+    "webpack-dev-middleware": "^1.6.1",
     "webpack-dev-server": "^2.0.0-beta",
     "webpack-hot-middleware": "^2.10.0",
     "webpack-merge": "^0.12.0"

@@ -1,8 +1,10 @@
 import * as path from 'path';
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
+import * as morgan from 'morgan';
+import * as compression from 'compression';
 
-import { ngApp } from './app'
+import { ngApp } from './app';
 
 // Angular 2 Universal
 import 'angular2-universal/polyfills';
@@ -22,7 +24,6 @@ import {
 import {App} from '../client/app';
 
 const app = express();
-const ROOT = path.join(path.resolve(__dirname, '../..'));
 
 enableProdMode();
 
@@ -30,7 +31,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Serve static files
-// app.use(express.static(ROOT, {index: false}));
 app.use(express.static('dist/client'));
 
 // Our API for demos only
