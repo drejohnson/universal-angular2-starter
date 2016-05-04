@@ -7,6 +7,8 @@ exports.DIST_DIR = path.resolve(exports.ROOT_DIR, 'dist');
 exports.CLIENT_DIR = path.resolve(exports.DIST_DIR, 'client');
 exports.SERVER_DIR = path.resolve(exports.DIST_DIR, 'server');
 
+exports.ENV = process.env.NODE_ENV || 'development';
+exports.DEBUG = process.env.NODE_ENV !== 'production';
 exports.HOST = process.env.HOST || 'localhost';
 exports.PORT = +process.env.PORT || 8080;
 

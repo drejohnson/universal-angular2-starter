@@ -24,8 +24,9 @@ declare const PREBOOT: {
 };
 
 // Extra variables that live on Global that will be replaced by webpack DefinePlugin
-declare var ENV: string;
-declare var HMR: boolean;
+declare const DEBUG: string;
+declare const ENV: string;
+declare const HMR: boolean;
 interface GlobalEnvironment {
   ENV;
   HMR;

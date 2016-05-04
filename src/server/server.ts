@@ -23,12 +23,19 @@ import {
 // Application
 import {App} from '../client/app';
 
+const DEBUG = process.env.NODE_ENV !== 'production';
+const PORT = process.env.PORT || 3000;
+
 const app = express();
 
-enableProdMode();
+if (process.env.NODE_ENV === 'production') {
+  enableProdMode();
+}
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(compression());
+app.use(morgan(DEBUG ? 'dev' : 'combined'));
 
 // Serve static files
 app.use(express.static('dist/client'));

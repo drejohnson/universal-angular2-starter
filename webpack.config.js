@@ -23,8 +23,8 @@ const SERVER_SOURCE_PATH    = constants.SERVER_SOURCE_PATH;
 const CLIENT_SOURCE_PATH    = constants.CLIENT_SOURCE_PATH;
 
 // Node Environment
-const ENV = process.env.ENV = process.env.NODE_ENV || 'development';
-const DEBUG = ENV !== 'production';
+const ENV = constants.ENV;
+const DEBUG = constants.DEBUG;
 
 // Node Modules
 const NODE_MODULES = fs.readdirSync(ROOT_DIR + '/node_modules').filter((name) => {
