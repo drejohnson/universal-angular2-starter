@@ -54,17 +54,17 @@
     "postinstall": "npm run typings -- install"
   },
   "dependencies": {
-    "angular2": "2.0.0-beta.15",
-    "angular2-universal": "~0.98.3",
+    "angular2": "2.0.0-beta.17",
+    "angular2-universal": "~0.99.0",
     "body-parser": "^1.15.0",
     "compression": "^1.6.1",
     "express": "^4.13.4",
     "morgan": "^1.7.0",
-    "preboot": "^2.0.7",
-    "rxjs": "5.0.0-beta.2"
+    "preboot": "^2.0.8",
+    "rxjs": "5.0.0-beta.6"
   },
   "devDependencies": {
-    "angular-cli": "0.0.34",
+    "angular-cli": "0.0.37",
     "codelyzer": "0.0.18",
     "compression-webpack-plugin": "^0.3.1",
     "copy-webpack-plugin": "^2.1.3",
