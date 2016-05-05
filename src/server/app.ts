@@ -41,9 +41,11 @@ export const ngApp = (req, res) => {
     </html>
     `,
     directives: [ App ],
-    providers: [
+    platformProviders: [
       provide(ORIGIN_URL, {useValue: 'http://localhost:3000'}),
-      provide(BASE_URL, {useValue: baseUrl}),
+      provide(BASE_URL, {useValue: baseUrl})
+    ],
+    providers: [
       provide(REQUEST_URL,  { useValue: 'req.originalUrl' }),
       NODE_ROUTER_PROVIDERS,
       NODE_HTTP_PROVIDERS
