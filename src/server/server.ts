@@ -8,20 +8,10 @@ import { ngApp } from './app';
 
 // Angular 2 Universal
 import 'angular2-universal/polyfills';
-import {
-  provide,
-  enableProdMode,
-  REQUEST_URL,
-  ORIGIN_URL,
-  BASE_URL,
-  NODE_ROUTER_PROVIDERS,
-  NODE_HTTP_PROVIDERS,
-  queryParamsToBoolean,
-  Bootloader
-} from 'angular2-universal';
+import { enableProdMode } from 'angular2/core';
 
 // Application
-import {App} from '../client/app';
+import { App } from '../client/app';
 
 const DEBUG = process.env.NODE_ENV !== 'production';
 const PORT = process.env.PORT || 3000;

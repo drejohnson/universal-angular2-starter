@@ -1,6 +1,6 @@
-import {Component, Directive, ElementRef, Renderer} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
-import {Http} from 'angular2/http';
+import { Component, Directive, ElementRef, Renderer } from '@angular/core';
+import { RouteConfig, ROUTER_DIRECTIVES, Router } from '@angular/router-deprecated';
+import { Http } from '@angular/http';
 
 import { Home } from './home';
 import { About } from './about';
@@ -29,47 +29,16 @@ export class XLarge {
     ...ROUTER_DIRECTIVES,
     XLarge
   ],
-  styles: [`
-    * { padding:0; margin:0; }
-    #universal { text-align:center; font-weight:bold; padding:15px 0; }
-    nav { background:#158126; min-height:40px; border-bottom:5px #046923 solid; }
-    nav a { font-weight:bold; text-decoration:none; color:#fff; padding:20px; display:inline-block; }
-    nav a:hover { background:#00AF36; }
-    .hero-universal { min-height:500px; display:block; padding:20px;
-        background:url('https://cloud.githubusercontent.com/assets/1016365/10639063/138338bc-7806-11e5-8057-d34c75f3cafc.png') no-repeat center center; }
-    .inner-hero { background: rgba(255, 255, 255, 0.75); border:5px #ccc solid; padding:25px; }
-    .router-link-active { background-color: #00AF36; }
-    blockquote { border-left:5px #158126 solid; background:#fff; padding:20px 20px 20px 40px; }
-    blockquote::before { left: 1em; }
-    main { padding:20px 0; }
-    pre { font-size:12px; }
-  `],
+  styles: [],
   template: `
   <h3 id="universal">Angular2 Universal</h3>
   <nav>
     <a [routerLink]=" ['./Home'] ">Home</a>
     <a [routerLink]=" ['./About'] ">About</a>
   </nav>
-  <div class="hero-universal">
-    <div class="inner-hero">
-      <div>
-        <span x-large>Universal JavaScript {{ title }}!</span>
-      </div>
-
-      Two-way binding: <input type="text" [value]="title" (input)="title = $event.target.value" autofocus>
-      <br><br>
-
-      <strong>Async data call return value:</strong>
-      <pre>{{ data | json }}</pre>
-
-      <strong>Router-outlet:</strong>
-      <main>
-        <router-outlet></router-outlet>
-      </main>
-
-      <blockquote>{{ server }}</blockquote>
-    </div>
-  </div>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
   `
 })
 @RouteConfig([

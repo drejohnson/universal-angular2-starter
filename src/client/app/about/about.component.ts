@@ -1,4 +1,4 @@
-import {Component, OnInit} from 'angular2/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'about',
@@ -6,7 +6,7 @@ import {Component, OnInit} from 'angular2/core';
   <div>About page</div>
   `
 })
-export class About implements OnInit {
+export class About {
 
   constructor() {}
 

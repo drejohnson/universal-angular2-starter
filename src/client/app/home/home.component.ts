@@ -1,4 +1,4 @@
-import {Component, OnInit} from 'angular2/core';
+import { Component } from '@angular/core';
 
 const styles = require('./home.component.css');
 const template = require('./home.component.html');
@@ -8,7 +8,7 @@ const template = require('./home.component.html');
   styles: [ styles ],
   template
 })
-export class Home implements OnInit {
+export class Home {
 
   constructor() {}
 

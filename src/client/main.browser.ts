@@ -1,11 +1,10 @@
 import 'angular2-universal/polyfills';
 
-import { bootstrap } from 'angular2-universal';
+import { bootstrap } from '@angular/platform-browser-dynamic';
+import { DIRECTIVES, PIPES, PROVIDERS } from './platform/browser';
+import { ENV_PROVIDERS } from './platform/environment';
 
-import {DIRECTIVES, PIPES, PROVIDERS} from './platform/browser';
-import {ENV_PROVIDERS} from './platform/environment';
-
-import {App, APP_PROVIDERS} from './app';
+import { App, APP_PROVIDERS } from './app';
 
 export function main(): Promise<any> {
   return bootstrap(App, [

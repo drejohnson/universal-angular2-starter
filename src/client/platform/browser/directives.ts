@@ -1,11 +1,12 @@
-import {provide, PLATFORM_DIRECTIVES} from 'angular2/core';
+import { PLATFORM_DIRECTIVES } from '@angular/core';
 
-import {ROUTER_DIRECTIVES} from 'angular2/router';
+// Angular 2 Router
+import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 
 export const APPLICATION_DIRECTIVES = [
   ...ROUTER_DIRECTIVES,
 ];
 
 export const DIRECTIVES = [
-  provide(PLATFORM_DIRECTIVES, {useValue: APPLICATION_DIRECTIVES, multi: true})
+  {provide: PLATFORM_DIRECTIVES, multi: true, useValue: APPLICATION_DIRECTIVES }
 ];

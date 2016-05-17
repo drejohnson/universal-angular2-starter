@@ -13,12 +13,12 @@ const CLIENT_DIR  = constants.CLIENT_DIR;
 const SERVER_DIR  = constants.SERVER_DIR;
 
 // const POLYFILLS_NAME = constants.POLYFILLS_NAME;
-// const VENDOR_NAME    = constants.VENDOR_NAME;
+const VENDOR_NAME    = constants.VENDOR_NAME;
 const SERVER_NAME    = constants.SERVER_NAME;
 const CLIENT_NAME    = constants.CLIENT_NAME;
 
 // const POLYFILLS_SOURCE_PATH = constants.POLYFILLS_SOURCE_PATH;
-// const VENDOR_SOURCE_PATH    = constants.VENDOR_SOURCE_PATH;
+const VENDOR_SOURCE_PATH    = constants.VENDOR_SOURCE_PATH;
 const SERVER_SOURCE_PATH    = constants.SERVER_SOURCE_PATH;
 const CLIENT_SOURCE_PATH    = constants.CLIENT_SOURCE_PATH;
 
@@ -138,12 +138,13 @@ const COMMON_CONFIG = {
 const CLIENT_CONFIG = {
   target: 'web',
   entry: {
+    [VENDOR_NAME]: VENDOR_SOURCE_PATH,
     [CLIENT_NAME]: CLIENT_SOURCE_PATH
   },
   output: {
     path: CLIENT_DIR,
     filename: '[name].js',
-    chunkFilename: '[id].' + CLIENT_NAME + '.js',
+    chunkFilename: '[id].[name].js',
   },
   plugins: [
     ...COMMOM_PLUGINS,
