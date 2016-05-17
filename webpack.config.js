@@ -152,7 +152,7 @@ const CLIENT_CONFIG = {
       from: '../assets',
       to: 'assets'
     }]),
-    new webpack.optimize.CommonsChunkPlugin({ name: ['main', 'vendor'], minChunks: Infinity }),
+    new webpack.optimize.CommonsChunkPlugin({ name: ['vendor', 'main'].reverse(), minChunks: Infinity }),
   ],
   node: {
     global: true,
