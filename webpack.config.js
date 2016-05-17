@@ -151,7 +151,8 @@ const CLIENT_CONFIG = {
     new CopyWebpackPlugin([{
       from: '../assets',
       to: 'assets'
-    }])
+    }]),
+    new webpack.optimize.CommonsChunkPlugin({ name: ['main', 'vendor'], minChunks: Infinity }),
   ],
   node: {
     global: true,
