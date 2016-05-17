@@ -8,7 +8,7 @@ const template = require('./home.component.html');
   styles: [ styles ],
   template
 })
-export class Home {
+export class HomeComponent {
 
   constructor() {}
 

@@ -2,58 +2,42 @@ import { Component, Directive, ElementRef, Renderer } from '@angular/core';
 import { RouteConfig, ROUTER_DIRECTIVES, Router } from '@angular/router-deprecated';
 import { Http } from '@angular/http';
 
-import { Home } from './home';
-import { About } from './about';
+import { HomeComponent } from './home';
+import { AboutComponent } from './about';
 
-/////////////////////////
-// ** Example Directive
-// Notice we don't touch the Element directly
-@Directive({
-  selector: '[x-large]'
-})
-export class XLarge {
-  constructor(element: ElementRef, renderer: Renderer) {
-    // ** IMPORTANT **
-    // we must interact with the dom through -Renderer-
-    // for webworker/server to see the changes
-    renderer.setElementStyle(element.nativeElement, 'fontSize', 'x-large');
-    // ^^
-  }
-}
-
-/////////////////////////
-// ** MAIN APP COMPONENT **
 @Component({
-  selector: 'app', // <app></app>
+  selector: 'app',
   directives: [
-    ...ROUTER_DIRECTIVES,
-    XLarge
+    ...ROUTER_DIRECTIVES
   ],
   styles: [],
   template: `
-  <h3 id="universal">Angular2 Universal</h3>
+  <h1>{{ title }}</h1>
   <nav>
     <a [routerLink]=" ['./Home'] ">Home</a>
     <a [routerLink]=" ['./About'] ">About</a>
   </nav>
   <main>
     <router-outlet></router-outlet>
+    <p>{{ server }}</p>
+    <pre>{{ data | json }}</pre>
   </main>
   `
 })
 @RouteConfig([
-  { path: '/', component: Home, name: 'Home', useAsDefault: true },
-  { path: '/about', component: About, name: 'About' },
+  { path: '/', component: HomeComponent, name: 'Home', useAsDefault: true },
+  { path: '/about', component: AboutComponent, name: 'About' },
   { path: '/**', redirectTo: ['Home'] }
 ])
 export class App {
-  title: string = 'ftw';
+  title = 'Angular 2 Universal Starter';
   data = {};
-  server:string;
+  server: string;
 
   constructor(public http: Http) { }
 
   ngOnInit() {
+    console.log('Angular 2 Universal + Webpack 2');
     setTimeout(() => {
       this.server = 'This was rendered from the server!';
     }, 10);

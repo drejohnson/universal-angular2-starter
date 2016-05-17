@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 
+const styles = require('./about.component.css');
+const template = require('./about.component.html');
+
 @Component({
   selector: 'about',
-  template: `
-  <div>About page</div>
-  `
+  styles: [ styles ],
+  template
 })
-export class About {
+export class AboutComponent {
 
   constructor() {}
 

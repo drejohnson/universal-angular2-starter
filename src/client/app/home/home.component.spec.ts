@@ -1,26 +1,46 @@
 import {
+  beforeEach,
   beforeEachProviders,
   describe,
-  ddescribe,
   expect,
-  iit,
   it,
   inject,
-  injectAsync,
-  ComponentFixture,
-  TestComponentBuilder
-} from 'angular2/testing';
-import {provide} from '@angular/core';
-import {Home} from './home.component';
+} from '@angular/core/testing';
+import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
+import { Component } from '@angular/core';
+import { By } from '@angular/platform-browser';
+import { HomeComponent } from './home.component';
 
-describe('Home Component', () => {
+describe('Component: Home', () => {
+  let builder: TestComponentBuilder;
 
-  beforeEachProviders((): any[] => []);
-
-  it('should ...', injectAsync([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-    return tcb.createAsync(Home).then((fixture: ComponentFixture) => {
-      fixture.detectChanges();
-    });
+  beforeEachProviders(() => [HomeComponent]);
+  beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
+    builder = tcb;
   }));
 
+  it('should inject the component', inject([HomeComponent],
+      (component: HomeComponent) => {
+    expect(component).toBeTruthy();
+  }));
+
+  it('should create the component', inject([], () => {
+    return builder.createAsync(HomeComponentTestController)
+      .then((fixture: ComponentFixture<any>) => {
+        let query = fixture.debugElement.query(By.directive(HomeComponent));
+        expect(query).toBeTruthy();
+        expect(query.componentInstance).toBeTruthy();
+      });
+  }));
 });
+
+@Component({
+  selector: 'test',
+  template: `
+    <home></home>
+  `,
+  directives: [HomeComponent]
+})
+class HomeComponentTestController {
+}
+

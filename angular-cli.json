@@ -1,3 +1,13 @@
 {
-  "routes": []
+  "project": {
+    "version": "0.0.1",
+    "name": "universal-app"
+  },
+  "apps": [
+    {"main": "src/client/main.browser.ts", "tsconfig": "tsconfig.json"}
+  ],
+  "defaults": {
+    "prefix": "app",
+    "sourceDir": "src/client"
+  }
 }
