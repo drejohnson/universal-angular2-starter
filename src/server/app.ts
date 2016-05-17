@@ -12,7 +12,7 @@ import {
   Bootloader
 } from 'angular2-universal';
 
-import { App } from '../client/app';
+import { App } from '../app';
 
 const bootloader = new Bootloader({
   platformProviders: [

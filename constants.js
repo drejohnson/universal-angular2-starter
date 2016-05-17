@@ -17,8 +17,8 @@ exports.SERVER_NAME    = 'server';
 exports.CLIENT_NAME    = 'main';
 
 exports.SERVER_SOURCE_PATH     = path.resolve(exports.SRC_DIR, 'server/server.ts');
-exports.VENDOR_SOURCE_PATH     = path.resolve(exports.SRC_DIR, 'client/vendor.ts');
-exports.CLIENT_SOURCE_PATH     = path.resolve(exports.SRC_DIR, 'client/main.browser.ts');
+exports.VENDOR_SOURCE_PATH     = path.resolve(exports.SRC_DIR, 'vendor.ts');
+exports.CLIENT_SOURCE_PATH     = path.resolve(exports.SRC_DIR, 'main.browser.ts');
 
 
 // exports.PREBOOT = {

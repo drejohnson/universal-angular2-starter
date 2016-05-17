@@ -9,6 +9,7 @@ const constants           = require('./constants');
 // Constants
 const ROOT_DIR    = constants.ROOT_DIR;
 const SRC_DIR     = constants.SRC_DIR;
+const DIST_DIR    = constants.DIST_DIR;
 const CLIENT_DIR  = constants.CLIENT_DIR;
 const SERVER_DIR  = constants.SERVER_DIR;
 
@@ -31,38 +32,36 @@ const NODE_MODULES = fs.readdirSync(ROOT_DIR + '/node_modules').filter((name) =>
   return name != '.bin';
 });
 
-// Client Only Loaders
-const CLIENT_LOADERS = [{
-  test: /\.css$/,
-  loader: 'to-string!css!postcss'
-}, {
-  test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
-  loader: 'url',
-  query: { limit: 10000 }
-}];
-
 // Common Loaders
-const LOADERS = [{
-  test: /\.ts$/,
-  loader: 'ts',
-  exclude: [
-    /\.(spec|e2e)\.ts$/,
-    /node_modules/
-  ]
-}, {
-  test: /\.html$/,
-  loader: 'raw'
-}, {
-  test: /\.json$/,
-  loader: 'json'
-}, {
-  test: /\.css$/,
-  loader: 'to-string!css!postcss'
-}, {
-  test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
-  loader: 'url',
-  query: { limit: 10000 }
-}];
+const LOADERS = [
+  {
+    test: /\.ts$/,
+    loader: 'ts',
+    exclude: [
+      /\.(spec|e2e)\.ts$/,
+      /node_modules/
+    ]
+  }, {
+    test: /\.html$/,
+    loader: 'raw'
+  }, {
+    test: /\.json$/,
+    loader: 'json'
+  }, {
+    test: /\.css$/,
+    loader: 'to-string!css!postcss'
+  }
+];
+
+// Client Only Loaders
+const CLIENT_LOADERS = [
+  ...LOADERS,
+  {
+    test: /\.(eot|gif|jpe?g|png|svg|woff2?|ttf)$/,
+    loader: 'url',
+    query: { limit: 10000 }
+  }
+];
 
 // PostCSS
 const AUTOPREFIXER_BROWSERS = [
@@ -130,8 +129,7 @@ const COMMON_CONFIG = {
     noParse: [
       path.join(__dirname, 'zone.js', 'dist'),
       path.join(__dirname, 'angular2', 'bundles')
-    ],
-    loaders: LOADERS
+    ]
   }
 };
 
@@ -145,6 +143,9 @@ const CLIENT_CONFIG = {
     path: CLIENT_DIR,
     filename: '[name].js',
     chunkFilename: '[id].[name].js',
+  },
+  module: {
+    loaders: CLIENT_LOADERS
   },
   plugins: [
     ...COMMOM_PLUGINS,
@@ -175,6 +176,9 @@ const SERVER_CONFIG = {
     chunkFilename: '[id].' + SERVER_NAME + '.js',
     library: SERVER_NAME,
     libraryTarget: 'commonjs2'
+  },
+  module: {
+    loaders: LOADERS
   },
   plugins: [
     ...COMMOM_PLUGINS,

@@ -4,10 +4,10 @@
     "name": "universal-app"
   },
   "apps": [
-    {"main": "src/client/main.browser.ts", "tsconfig": "tsconfig.json"}
+    {"main": "src/main.browser.ts", "tsconfig": "tsconfig.json"}
   ],
   "defaults": {
     "prefix": "app",
-    "sourceDir": "src/client"
+    "sourceDir": "src"
   }
 }
