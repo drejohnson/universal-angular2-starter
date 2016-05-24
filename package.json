@@ -63,7 +63,7 @@
     "@angular/platform-server": "2.0.0-rc.1",
     "@angular/router": "2.0.0-rc.1",
     "@angular/router-deprecated": "2.0.0-rc.1",
-    "angular2-universal": "~0.101.0",
+    "angular2-universal": "~0.101.3",
     "body-parser": "^1.15.1",
     "compression": "^1.6.1",
     "express": "^4.13.4",
@@ -72,7 +72,7 @@
     "rxjs": "5.0.0-beta.6"
   },
   "devDependencies": {
-    "angular-cli": "^1.0.0-beta.2-mobile.4",
+    "angular-cli": "^1.0.0-beta.4",
     "assets-webpack-plugin": "^3.4.0",
     "codelyzer": "0.0.18",
     "compression-webpack-plugin": "^0.3.1",

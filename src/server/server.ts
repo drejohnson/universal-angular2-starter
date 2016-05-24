@@ -12,7 +12,7 @@ import { ngApp } from './app';
 
 // Angular 2 Universal
 import 'angular2-universal/polyfills';
-import { enableProdMode } from 'angular2/core';
+import { enableProdMode } from '@angular/core';
 
 // Application
 import { App } from '../app';

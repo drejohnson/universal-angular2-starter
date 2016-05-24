@@ -43,7 +43,6 @@ export function ngApp(req, res) {
       </head>
       <body>
         <app>... Loading Universal ...</app>
-        <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
         <script src="vendor.js"></script>
         <script src="main.js"></script>
       </body>

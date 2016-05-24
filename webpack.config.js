@@ -50,6 +50,10 @@ const LOADERS = [
   }, {
     test: /\.css$/,
     loader: 'to-string!css!postcss'
+  }, {
+    test: /\.(eot|gif|jpe?g|png|svg|woff2?|ttf)$/,
+    loader: 'url',
+    query: { limit: 10000 }
   }
 ];
 
@@ -145,12 +149,12 @@ const CLIENT_CONFIG = {
     chunkFilename: '[id].[name].js',
   },
   module: {
-    loaders: CLIENT_LOADERS
+    loaders: LOADERS
   },
   plugins: [
     ...COMMOM_PLUGINS,
     new CopyWebpackPlugin([{
-      from: '../assets',
+      from: 'src/assets',
       to: 'assets'
     }]),
     new webpack.optimize.CommonsChunkPlugin({ name: ['vendor', 'main'].reverse(), minChunks: Infinity }),
