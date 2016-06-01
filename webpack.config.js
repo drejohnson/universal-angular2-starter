@@ -1,30 +1,28 @@
-const fs                  = require('fs');
-const path                = require('path');
-const webpack             = require('webpack');
-const webpackMerge        = require('webpack-merge');
-const CompressionPlugin   = require('compression-webpack-plugin');
-const CopyWebpackPlugin   = require('copy-webpack-plugin');
-const constants           = require('./constants');
+const fs                = require('fs');
+const path              = require('path');
+const webpack           = require('webpack');
+const webpackMerge      = require('webpack-merge');
+const CompressionPlugin = require('compression-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const constants         = require('./constants');
 
 // Constants
-const ROOT_DIR    = constants.ROOT_DIR;
-const SRC_DIR     = constants.SRC_DIR;
-const DIST_DIR    = constants.DIST_DIR;
-const CLIENT_DIR  = constants.CLIENT_DIR;
-const SERVER_DIR  = constants.SERVER_DIR;
+const ROOT_DIR   = constants.ROOT_DIR;
+const SRC_DIR    = constants.SRC_DIR;
+const DIST_DIR   = constants.DIST_DIR;
+const CLIENT_DIR = constants.CLIENT_DIR;
+const SERVER_DIR = constants.SERVER_DIR;
 
-// const POLYFILLS_NAME = constants.POLYFILLS_NAME;
-const VENDOR_NAME    = constants.VENDOR_NAME;
-const SERVER_NAME    = constants.SERVER_NAME;
-const CLIENT_NAME    = constants.CLIENT_NAME;
+const VENDOR_NAME = constants.VENDOR_NAME;
+const SERVER_NAME = constants.SERVER_NAME;
+const CLIENT_NAME = constants.CLIENT_NAME;
 
-// const POLYFILLS_SOURCE_PATH = constants.POLYFILLS_SOURCE_PATH;
-const VENDOR_SOURCE_PATH    = constants.VENDOR_SOURCE_PATH;
-const SERVER_SOURCE_PATH    = constants.SERVER_SOURCE_PATH;
-const CLIENT_SOURCE_PATH    = constants.CLIENT_SOURCE_PATH;
+const VENDOR_SOURCE_PATH = constants.VENDOR_SOURCE_PATH;
+const SERVER_SOURCE_PATH = constants.SERVER_SOURCE_PATH;
+const CLIENT_SOURCE_PATH = constants.CLIENT_SOURCE_PATH;
 
 // Node Environment
-const ENV = constants.ENV;
+const ENV   = constants.ENV;
 const DEBUG = constants.DEBUG;
 
 // Node Modules
@@ -71,7 +69,6 @@ const CLIENT_LOADERS = [
 const AUTOPREFIXER_BROWSERS = [
   'last 2 versions'
 ];
-
 const POSTCSS = function() {
   return [
     require('postcss-partial-import'),
@@ -120,6 +117,7 @@ const COMMOM_PLUGINS = [
   ]
 ];
 
+// Common Config
 const COMMON_CONFIG = {
   devtool: DEBUG ? 'cheap-module-source-map' : false,
   cache: DEBUG,
@@ -137,6 +135,7 @@ const COMMON_CONFIG = {
   }
 };
 
+// Client Config
 const CLIENT_CONFIG = {
   target: 'web',
   entry: {
@@ -168,7 +167,7 @@ const CLIENT_CONFIG = {
   }
 };
 
-
+// Server Config
 const SERVER_CONFIG = {
   target: 'node',
   entry: {
@@ -199,10 +198,10 @@ const SERVER_CONFIG = {
   }
 };
 
+// Exports
 module.exports = [
   // Client
-  webpackMerge({}, COMMON_CONFIG, CLIENT_CONFIG),
-
+  Object.assign({}, COMMON_CONFIG, CLIENT_CONFIG),
   // Server
-  webpackMerge({}, COMMON_CONFIG, SERVER_CONFIG)
+  Object.assign({}, COMMON_CONFIG, SERVER_CONFIG)
 ];

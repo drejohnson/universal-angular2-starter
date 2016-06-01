@@ -1,6 +1,13 @@
 {
   "watch": [
-    "dist"
+    "webpack.config.ts",
+    "src/server/server.ts",
+    "src/server/app.ts",
+    "src/server/routes.ts",
+    "src/main.ts",
+    "src",
+    "app"
   ],
-  "ext" : "js ts json html"
+  "ext" : "js ts json html",
+  "exec": "node dist/server/server.js"
 }

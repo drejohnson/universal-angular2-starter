@@ -30,7 +30,7 @@ import { AboutComponent } from './about';
   { path: '/**', redirectTo: ['Home'] }
 ])
 export class App {
-  title = 'Angular 2 Universal Starter';
+  title = 'Angular 2 Universal';
   data = {};
   server: string;
 

@@ -17,7 +17,7 @@ import { App } from '../app';
 const bootloader = new Bootloader({
   platformProviders: [
     provide(ORIGIN_URL, { useValue: 'http://localhost:3000' }),
-    provide(BASE_URL, {useValue: '/'})
+    provide(BASE_URL, { useValue: '/' })
   ],
   async: true,
   preboot: false
@@ -31,13 +31,12 @@ export function ngApp(req, res) {
     <!doctype html>
     <html>
       <head>
+        <meta charset="utf-8">
         <title>Angular 2 Universal Starter</title>
-        <meta charset="UTF-8">
         <meta name="description" content="Angular 2 Universal">
-        <meta name="keywords" content="Angular 2,Universal">
-        <meta name="author" content="PatrickJS">
-
-        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+        <meta name="keywords" content="Angular 2, Universal, Webpack">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
 
         <base href="/">
       </head>
